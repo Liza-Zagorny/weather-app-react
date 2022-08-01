@@ -5,12 +5,12 @@ function App() {
   return (
     <div className="App">
       <SearchCurrentWeather />
-      <p>
+      <footer>
         <a href="https://github.com/Liza-Zagorny/weather-app-react">
           Open-source code
         </a>{" "}
         by Liza Neiman
-      </p>
+      </footer>
     </div>
   );
 }

@@ -1,0 +1,43 @@
+.current-temp {
+    line-height: 64px;
+}
+
+.current-temp img {
+    width: 64px;
+    height: 64px;
+}
+
+.current-location-description {
+    font-size: 15px;
+    text-align: left;
+}
+
+h2 {
+    padding-left: 50px;
+}
+
+.temp {
+    font-size: 50px;
+    font-weight: 500;
+    position: relative;
+    bottom: -10px;
+}
+
+.units {
+    font-size: 15px;
+    position: relative;
+    top: -15px;
+}
+.current-weather-row {
+    padding-top: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active,
+.active:hover {
+    color: #212529;
+    cursor: default;
+}

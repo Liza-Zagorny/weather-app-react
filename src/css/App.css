@@ -5,3 +5,9 @@
   display: block
 }
 
+footer {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+}
+

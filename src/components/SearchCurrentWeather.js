@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import "../css/SearchCurrentWeather.css";
 
 function SearchCurrentWeather() {
@@ -69,48 +69,7 @@ function SearchCurrentWeather() {
               </button>
             </div>
           </div>
-          <div className="row current-weather-row mt-3">
-            <div className="col-6">
-              <h1>
-                <ul>
-                  <li>
-                    <span>
-                      {weatherData.city}, {weatherData.country}
-                    </span>
-                  </li>
-                  <li className="current-temp clearfix">
-                    <img
-                      src={weatherData.imgSrc}
-                      alt={weatherData.description}
-                    />
-                    <span className="temp">{weatherData.celsiusTemp}</span>
-                    <span className="units">
-                      <a href="/">°C</a> | <a href="/">°F</a>
-                    </span>
-                  </li>
-                </ul>
-              </h1>
-            </div>
-            <div className="col-6">
-              <h2>
-                <ul className="current-location-description">
-                  <li>Last updated at:</li>
-                  <li>
-                    <FormattedDate date={weatherData.dateUpdated} />
-                  </li>
-                  <li>
-                    <span>{weatherData.description}</span>
-                  </li>
-                  <li>
-                    Humidity: <span>{weatherData.humidity}</span>%
-                  </li>
-                  <li>
-                    Wind: <span>{weatherData.windKmPH}</span> km/h
-                  </li>
-                </ul>
-              </h2>
-            </div>
-          </div>
+          <WeatherInfo data={weatherData} />
         </div>
       </div>
     </div>
