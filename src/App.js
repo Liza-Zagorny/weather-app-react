@@ -4,7 +4,7 @@ import "./css/App.css";
 function App() {
   return (
     <div className="App">
-      <SearchCurrentWeather />
+      <SearchCurrentWeather defaultCity="Toronto" />
       <footer>
         <a href="https://github.com/Liza-Zagorny/weather-app-react">
           Open-source code

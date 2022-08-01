@@ -3,25 +3,16 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import "../css/SearchCurrentWeather.css";
 
-function SearchCurrentWeather() {
-  const [cityName, setCityName] = React.useState(null);
-  const [weatherData, setWeatherData] = useState({
-    city: "Tel Aviv",
-    country: "IL",
-    celsiusTemp: "30",
-    imgSrc: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-    dateUpdated: new Date(),
-    description: "Party cloudy",
-    humidity: "57",
-    windKmPH: "10",
-  });
+function SearchCurrentWeather(props) {
+  const [cityName, setCityName] = React.useState(props.defaultCity);
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function updateCityName(event) {
     setCityName(event.target.value);
   }
 
   function showData(response) {
-    console.log(response.data);
     setWeatherData({
+      ready: true,
       city: response.data.name,
       country: response.data.sys.country,
       celsiusTemp: Math.round(response.data.main.temp),
@@ -33,47 +24,55 @@ function SearchCurrentWeather() {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function search() {
     let city = cityName;
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let units = "metric";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-    console.log(url);
     axios.get(url).then(showData);
   }
 
-  return (
-    <div className="SearchCurrentWeather">
-      <div className="card card-main">
-        <div className="card-body">
-          <div className="row search-row">
-            <div className="col-10 search-from ">
-              <form onSubmit={handleSubmit}>
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Search another city"
-                  autoComplete="off"
-                  onChange={updateCityName}
-                />
-              </form>
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  if (weatherData.ready)
+    return (
+      <div className="SearchCurrentWeather">
+        <div className="card card-main">
+          <div className="card-body">
+            <div className="row search-row">
+              <div className="col-10 search-from ">
+                <form onSubmit={handleSubmit}>
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Search another city"
+                    autoComplete="off"
+                    onChange={updateCityName}
+                  />
+                </form>
+              </div>
+              <div className="col-2 d-grid gap-2 d-flex justify-content-evenly">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={handleSubmit}
+                >
+                  Search
+                </button>
+              </div>
             </div>
-            <div className="col-2 d-grid gap-2 d-flex justify-content-evenly">
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleSubmit}
-              >
-                Search
-              </button>
-            </div>
+            <WeatherInfo data={weatherData} />
           </div>
-          <WeatherInfo data={weatherData} />
         </div>
       </div>
-    </div>
-  );
+    );
+  else {
+    search();
+    return "Loading...";
+  }
 }
 
 export default SearchCurrentWeather;
