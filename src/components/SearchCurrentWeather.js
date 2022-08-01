@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "../css/Search.css";
+import "../css/SearchCurrentWeather.css";
 
 function SearchCurrentWeather() {
   const [cityName, setCityName] = React.useState(null);
@@ -21,11 +21,14 @@ function SearchCurrentWeather() {
   function showData(response) {
     console.log(response.data);
     setWeatherData({
-      temp: response.data.main.temp,
+      city: "Tel Aviv",
+      country: "IL",
+      celsiusTemp: response.data.main.temp,
+      imgSrc: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      dateUpdated: "Saturday 12:26",
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      windSpeed: response.data.wind.speed,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      windKmPH: response.data.wind.speed,
     });
   }
 
