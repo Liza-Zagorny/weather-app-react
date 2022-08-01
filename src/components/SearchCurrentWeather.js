@@ -21,14 +21,14 @@ function SearchCurrentWeather() {
   function showData(response) {
     console.log(response.data);
     setWeatherData({
-      city: "Tel Aviv",
-      country: "IL",
-      celsiusTemp: response.data.main.temp,
+      city: response.data.name,
+      country: response.data.sys.country,
+      celsiusTemp: Math.round(response.data.main.temp),
       imgSrc: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       dateUpdated: "Saturday 12:26",
-      description: response.data.weather[0].description,
+      description: response.data.weather[0].main,
       humidity: response.data.main.humidity,
-      windKmPH: response.data.wind.speed,
+      windKmPH: Math.round(response.data.wind.speed),
     });
   }
 
@@ -48,14 +48,13 @@ function SearchCurrentWeather() {
         <div className="card-body">
           <div className="row search-row">
             <div className="col-10 search-from ">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <input
                   className="form-control"
                   type="text"
                   placeholder="Search another city"
                   autoComplete="off"
                   onChange={updateCityName}
-                  onSubmit={handleSubmit}
                 />
               </form>
             </div>
