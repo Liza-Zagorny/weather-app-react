@@ -1,4 +1,5 @@
 import "../css/Weather.css";
+import Search from "./Search";
 
 function Weather() {
   let weatherData = {
@@ -15,23 +16,7 @@ function Weather() {
     <div className="Weather">
       <div className="card card-main">
         <div className="card-body">
-          <div className="row search-row">
-            <div className="col-10 search-from ">
-              <form>
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Search another city"
-                  autoComplete="off"
-                />
-              </form>
-            </div>
-            <div className="col-2 d-grid gap-2 d-flex justify-content-evenly">
-              <button type="button" className="btn btn-primary">
-                Search
-              </button>
-            </div>
-          </div>
+          <Search />
           <div className="row current-weather-row">
             <div className="col-8">
               <h1>
