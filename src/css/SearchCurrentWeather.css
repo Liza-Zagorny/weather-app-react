@@ -1,3 +1,5 @@
+.SearchCurrentWeather ul {
+    padding: 0}
 li {
     list-style: none;
 }
@@ -26,12 +28,31 @@ footer {
 }
 
 .current-temp {
-    font-size: smaller;
+  line-height: 64px;
+}
+.current-temp img {
+    width: 64px;
+    height: 64px;
 }
 
 .current-location-description {
     font-size: 15px;
     text-align: left;
+}
+h2 {
+    padding-left: 50px;
+}
+
+.temp {
+    font-size: 50px;
+    font-weight: 500;
+    position: relative;
+    bottom: -10px;
+}
+.units {
+    font-size: 15px;
+    position:relative;
+    top: -15px;
 }
 
 .day-description {
@@ -76,34 +97,4 @@ a {
     cursor: default;
 }
 
-.day-hot {
-    background-image: linear-gradient(135deg, #f5f7fa, #f4a582);
-}
 
-.day-warm {
-    background-image: linear-gradient(135deg, #f5f7fa, #fddbc7);
-}
-
-.day-cold {
-    background-image: linear-gradient(135deg, #f5f7fa, #d1e5f0);
-}
-
-.day-freezing {
-    background-image: linear-gradient(135deg, #f5f7fa, #92c5df);
-}
-
-.night-hot {
-    background-image: linear-gradient(135deg, #b2172b, #2c2c2c);
-}
-
-.night-warm {
-    background-image: linear-gradient(135deg, #d6604d, #2c2c2c);
-}
-
-.night-cold {
-    background-image: linear-gradient(135deg, #2166ac, #2c2c2c);
-}
-
-.night-freezing {
-    background-image: linear-gradient(135deg, #053061, #2c2c2c);
-}

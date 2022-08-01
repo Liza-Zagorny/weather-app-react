@@ -68,8 +68,8 @@ function SearchCurrentWeather() {
               </button>
             </div>
           </div>
-          <div className="row current-weather-row">
-            <div className="col-8">
+          <div className="row current-weather-row mt-3">
+            <div className="col-6">
               <h1>
                 <ul>
                   <li>
@@ -77,12 +77,12 @@ function SearchCurrentWeather() {
                       {weatherData.city}, {weatherData.country}
                     </span>
                   </li>
-                  <li className="current-temp">
+                  <li className="current-temp clearfix">
                     <img
                       src={weatherData.imgSrc}
                       alt={weatherData.description}
                     />
-                    <span>{weatherData.celsiusTemp}</span>
+                    <span className="temp">{weatherData.celsiusTemp}</span>
                     <span className="units">
                       <a href="/">°C</a> | <a href="/">°F</a>
                     </span>
@@ -90,7 +90,7 @@ function SearchCurrentWeather() {
                 </ul>
               </h1>
             </div>
-            <div className="col-4">
+            <div className="col-6">
               <h2>
                 <ul className="current-location-description">
                   <li>Last updated at:</li>
