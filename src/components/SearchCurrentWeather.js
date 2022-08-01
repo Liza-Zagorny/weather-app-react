@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import "../css/SearchCurrentWeather.css";
 
 function SearchCurrentWeather() {
@@ -9,7 +10,7 @@ function SearchCurrentWeather() {
     country: "IL",
     celsiusTemp: "30",
     imgSrc: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
-    dateUpdated: "Saturday 12:26",
+    dateUpdated: new Date(),
     description: "Party cloudy",
     humidity: "57",
     windKmPH: "10",
@@ -25,7 +26,7 @@ function SearchCurrentWeather() {
       country: response.data.sys.country,
       celsiusTemp: Math.round(response.data.main.temp),
       imgSrc: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      dateUpdated: "Saturday 12:26",
+      dateUpdated: new Date(response.data.dt * 1000),
       description: response.data.weather[0].main,
       humidity: response.data.main.humidity,
       windKmPH: Math.round(response.data.wind.speed),
@@ -95,7 +96,7 @@ function SearchCurrentWeather() {
                 <ul className="current-location-description">
                   <li>Last updated at:</li>
                   <li>
-                    <span>{weatherData.dateUpdated}</span>
+                    <FormattedDate date={weatherData.dateUpdated} />
                   </li>
                   <li>
                     <span>{weatherData.description}</span>
