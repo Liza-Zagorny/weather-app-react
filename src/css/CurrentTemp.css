@@ -1,0 +1,12 @@
+.temp {
+    font-size: 50px;
+    font-weight: 500;
+    position: relative;
+    bottom: -10px;
+}
+
+.units {
+    font-size: 15px;
+    position: relative;
+    top: -15px;
+}

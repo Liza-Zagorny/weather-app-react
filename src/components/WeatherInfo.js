@@ -1,4 +1,5 @@
 import React from "react";
+import CurrentTemp from "./CurrentTemp";
 import FormattedDate from "./FormattedDate";
 import "../css/WeatherInfo.css";
 
@@ -16,10 +17,7 @@ function WeatherInfo(props) {
               </li>
               <li className="current-temp clearfix">
                 <img src={props.data.imgSrc} alt={props.data.description} />
-                <span className="temp">{props.data.celsiusTemp}</span>
-                <span className="units">
-                  <a href="/">°C</a> | <a href="/">°F</a>
-                </span>
+                <CurrentTemp celsius={props.data.celsiusTemp} />
               </li>
             </ul>
           </h1>
