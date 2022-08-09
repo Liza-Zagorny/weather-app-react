@@ -2,7 +2,6 @@ import SearchCurrentWeather from "./components/SearchCurrentWeather";
 import "./css/App.css";
 
 function App() {
-  console.log("App is called");
   return (
     <div className="App">
       <SearchCurrentWeather defaultCity="Toronto" />

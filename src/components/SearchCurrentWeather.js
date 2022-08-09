@@ -38,6 +38,7 @@ function SearchCurrentWeather(props) {
 
   useEffect(() => {
     search();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleSubmit(event) {
@@ -79,7 +80,6 @@ function SearchCurrentWeather(props) {
       </div>
     );
   else {
-    //search();
     return "Loading...";
   }
 }
