@@ -1,6 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
+
 import "../css/SearchCurrentWeather.css";
 
 function SearchCurrentWeather(props) {
@@ -11,9 +13,11 @@ function SearchCurrentWeather(props) {
   }
 
   function showData(response) {
+    console.log(response.data.coord);
     setWeatherData({
       ready: true,
       city: response.data.name,
+      coordinates: response.data.coord,
       country: response.data.sys.country,
       celsiusTemp: Math.round(response.data.main.temp),
       imgSrc: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
@@ -31,6 +35,10 @@ function SearchCurrentWeather(props) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(url).then(showData);
   }
+
+  useEffect(() => {
+    search();
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -65,12 +73,13 @@ function SearchCurrentWeather(props) {
               </div>
             </div>
             <WeatherInfo data={weatherData} />
+            <Forecast coordinates={weatherData.coordinates} />
           </div>
         </div>
       </div>
     );
   else {
-    search();
+    //search();
     return "Loading...";
   }
 }
