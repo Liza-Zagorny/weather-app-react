@@ -11,6 +11,7 @@ function FormattedDate(props) {
     "Saturday",
   ];
   let day = days[props.date.getDay()];
+  let shortDay = day.slice(0, 3);
   let hours = props.date.getHours();
   let minutes = props.date.getMinutes();
 
@@ -21,11 +22,22 @@ function FormattedDate(props) {
     hours = `0${hours}`;
   }
 
-  return (
-    <span>
-      {day} {hours}:{minutes}
-    </span>
-  );
+  if (props.format === "long") {
+    return (
+      <span>
+        {day} {hours}:{minutes}
+      </span>
+    );
+  } else {
+    return (
+      <div>
+        <div>{shortDay}</div>
+        <div>
+          {hours}:{minutes}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default FormattedDate;

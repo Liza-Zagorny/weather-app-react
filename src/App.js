@@ -6,7 +6,11 @@ function App() {
     <div className="App">
       <SearchCurrentWeather defaultCity="Toronto" />
       <footer>
-        <a href="https://github.com/Liza-Zagorny/weather-app-react">
+        <a
+          href="https://github.com/Liza-Zagorny/weather-app-react"
+          target="_blank"
+          rel="noreferrer"
+        >
           Open-source code
         </a>{" "}
         by Liza Neiman
