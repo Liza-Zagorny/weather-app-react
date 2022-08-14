@@ -3,7 +3,7 @@ import "../css/CurrentTemp.css";
 
 function CurrentTemp(props) {
   const [tempValue, setTempValue] = useState(props.celsius);
-  const [unit, setUnit] = useState("celsius");
+  const [unit] = useState("celsius");
 
   if (props.celsius !== tempValue && unit === "celsius") {
     setTempValue(props.celsius);
