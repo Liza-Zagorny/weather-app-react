@@ -1,4 +1,10 @@
 
 .min-tmp {
-    opacity: 70%;
+    opacity: 65%;
+    margin-left: 5px;
+}
+
+.ForecastDay img {
+    width: 64px;
+    height: 64px;
 }
