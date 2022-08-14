@@ -13,7 +13,6 @@ function SearchCurrentWeather(props) {
   }
 
   function showData(response) {
-    console.log(response.data.coord);
     setWeatherData({
       ready: true,
       city: response.data.name,

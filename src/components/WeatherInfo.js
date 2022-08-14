@@ -27,7 +27,7 @@ function WeatherInfo(props) {
             <ul className="current-location-description">
               <li>Last updated at:</li>
               <li>
-                <FormattedDate date={props.data.dateUpdated} />
+                <FormattedDate date={props.data.dateUpdated} format={"long"} />
               </li>
               <li>
                 <span>{props.data.description}</span>
