@@ -19,7 +19,7 @@ function SearchCurrentWeather(props) {
       coordinates: response.data.coord,
       country: response.data.sys.country,
       celsiusTemp: Math.round(response.data.main.temp),
-      imgSrc: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      imgSrc: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       dateUpdated: new Date(response.data.dt * 1000),
       description: response.data.weather[0].main,
       humidity: response.data.main.humidity,

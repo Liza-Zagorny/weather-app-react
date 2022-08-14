@@ -76,7 +76,7 @@ function Forecast(props) {
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
     let units = "metric";
-    let url = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+    let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
     axios.get(url).then(getForecast);
   }, [props.coordinates]);
 
@@ -101,7 +101,7 @@ function Forecast(props) {
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
     let units = "metric";
-    let url = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+    let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
     axios.get(url).then(getForecast);
 
     return null;

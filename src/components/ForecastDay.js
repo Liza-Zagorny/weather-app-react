@@ -6,7 +6,7 @@ function ForecastDay(props) {
   const [dt, setDt] = useState(new Date(props.data.dt * 1000));
   const [iconCode, setIconCode] = useState(props.data.iconCode);
   const [imgSrc, setImgSrc] = useState(
-    `http://openweathermap.org/img/wn/${iconCode}@2x.png`
+    `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
   const [description, setDescription] = useState(props.data.description);
   const [maxTemp, setMaxTemp] = useState();
@@ -15,7 +15,7 @@ function ForecastDay(props) {
   useEffect(() => {
     setDt(new Date(props.data.dt * 1000));
     setIconCode(props.data.iconCode);
-    setImgSrc(`http://openweathermap.org/img/wn/${iconCode}@2x.png`);
+    setImgSrc(`https://openweathermap.org/img/wn/${iconCode}@2x.png`);
     setDescription(props.data.description);
     setMaxTemp(Math.round(props.data.maxForDay));
     setMinTemp(Math.round(props.data.minForDay));
